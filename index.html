@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <title>漢字と仮名の筆順</title>
+    <style>
+      @font-face {
+        font-family: KanjiStroke;
+        src: url(KanjiStrokeOrders_v4.001.ttf);
+      }
+      html, body {}
+      body { text-align: center; font-size: 2em; }
+      #out { font-family: KanjiStroke; font-size: 10em; }
+    </style>
+    <script>
+      function copyText() {
+        console.log("copying...") // DEBUG
+        const eIn       = document.getElementById("in")
+        const eOut      = document.getElementById("out")
+        eOut.innerText  = eIn.value
+      }
+    </script>
+  </head>
+  <body>
+    <a href="Table_hiragana.svg">平仮名</a> //
+    <a href="Table_katakana.svg">片仮名</a> //
+    <input id="in" type="text" placeholder="漢字か仮名を入力"
+      onchange="copyText()" />
+    <input type="button" onclick="copyText()" value="確認" />
+    <div id="out"></div>
+  </body>
+</html>
