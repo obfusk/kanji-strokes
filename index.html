@@ -5,28 +5,30 @@
     <title>漢字と仮名の筆順</title>
     <style>
       @font-face {
-        font-family: KanjiStroke;
+        font-family: KanjiStrokeOrders;
         src: url(KanjiStrokeOrders_v4.001.ttf);
       }
-      html, body {}
-      body { text-align: center; font-size: 2em; }
-      #out { font-family: KanjiStroke; font-size: 10em; }
+      input { font-size: 1em; }
+      body  { font-size: 1.5em; text-align: center; }
+      #out  { font-family: KanjiStrokeOrders; font-size: 10em; }
     </style>
     <script>
-      function copyText() {
-        console.log("copying...") // DEBUG
-        const eIn       = document.getElementById("in")
-        const eOut      = document.getElementById("out")
-        eOut.innerText  = eIn.value
+      window.onload = () => {
+        document.getElementById("out").innerText =
+          (new URLSearchParams(location.search)).get("q") ||
+          "漢字と仮名の筆順"
       }
     </script>
   </head>
   <body>
     <a href="Table_hiragana.svg">平仮名</a> //
-    <a href="Table_katakana.svg">片仮名</a> //
-    <input id="in" type="text" placeholder="漢字か仮名を入力"
-      onchange="copyText()" />
-    <input type="button" onclick="copyText()" value="確認" />
+    <a href="Table_katakana.svg">片仮名</a>
+    <br />
+    <form>
+      <input id="in" name="q" type="text"
+        placeholder="漢字か仮名を入力" />
+      <input type="submit" value="確認" />
+    </form>
     <div id="out"></div>
   </body>
 </html>
