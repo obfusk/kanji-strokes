@@ -14,6 +14,8 @@
 
 kanji-strokes - 漢字と仮名の筆順 - stroke order for japanese text
 
+Demo: https://kanji-strokes.herokuapp.com
+
 ## Usage
 
 Download the source code (with git or you can get the .zip).
